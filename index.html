@@ -11,7 +11,7 @@
   <header>
     <h1>Weather Dashboard</h1>
   </header>
-  <div class="container">
+  <div >
     <div class="row">
       <aside class="search-section">
         <h2>
@@ -25,12 +25,12 @@
                 id="search-input"
                 placeholder="Indianapolis"
                 aria-labelledby="form-heading"
-                aria-controls="today forecast"
+                aria-controls="present-day weather-forecast"
                 >
               <div>
                 <button
                   type="submit"
-                  class="search-button"
+                  class="button search-btn"
                   id="search-btn"
                   aria-label="submit search">
                   Search
@@ -45,13 +45,13 @@
         </div>
       </aside>
       <div class="api-display">
-        <section id="today"
+        <section id="present-day"
           class="day"
           role="region"
           aria-live="polite">
 
         </section>
-        <section id="forecast"
+        <section id="weather-forecast"
           class="row weather"
           role="region"
           aria-live="polite">
@@ -61,21 +61,11 @@
     </div>
   </div>
 
-  <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"
-      integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg=="
-      crossorigin="anonymous"
-    ></script>
-    <script 
-      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/utc.min.js" 
-      integrity="sha512-m00bfmYnAl3plEBlQfeQUhw/U2uvmw29V2+jxSWpAjankMWS+zAsjezbKWDEJNXqWq9o9qQZSOiA2RKDpa4D5w==" 
-      crossorigin="anonymous"
-    ></script>
-    <script 
-      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/timezone.min.js" 
-      integrity="sha512-pslqxxHAYPCxaSeFSmXXxDkLejD5dbFVC66aiVq0z4v7VTJBU+wqcG1OpNh4p3MjS2D6NCwz/H2QmSc7dXxryg==" 
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha384-gtpWvEgskxcEpGzpHMvoZP/GatSRkCbh0kBpCVOWI2tTYx1M+uh7tkg6dfRXBl8I" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/utc.min.js" integrity="sha384-sxyyvNF0x9Qy9WN+rukaDQS1cPBhP7CoHOJMAYVf0Q39uAMTE1mYwN0nJJLO1pCm" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/timezone.min.js" integrity="sha384-CKz0+kqgvCFzcIq3V3H0wmccbBw3zwOJRxLbf9mhP9sscuXL0orMi4R7GnpBVyrW" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
 
 </body>
