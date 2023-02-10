@@ -22,7 +22,6 @@ function displaySearchHistory() {
     button.setAttribute("aria-controls", "today forecast");
     button.classList.add("history-btn", "button-history");
 
-    // `data-search` allows access to city name when click handler is invoked
     button.setAttribute("data-search", searchHistory[i]);
     button.textContent = searchHistory[i];
     searchHistoryContainer.append(button);
@@ -50,10 +49,9 @@ function showInSearchHistory() {
   displaySearchHistory();
 }
 
-// Function to display the current weather data fetched from OpenWeather api.
+// Display the current weather data fetched from OpenWeather api.
 function renderCurrentWeather(city, weather) {
   var Currentday = dayjs().format("MM/DD/YYYY");
-  // Store response data from our fetch request in variables
   var temperature = weather.main.temp;
   var windSpeed = weather.wind.speed;
   var humidity = weather.main.humidity;
@@ -91,8 +89,6 @@ function renderCurrentWeather(city, weather) {
   presentDayContainer.append(card);
 }
 
-// Function to display a forecast card given an object from open weather api
-// daily forecast.
 function renderForecastCard(forecast) {
   // variables for data from api
   var iconUrl = `https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`;
@@ -115,11 +111,10 @@ function renderForecastCard(forecast) {
   card.append(cardBody);
   cardBody.append(cardTitle, weatherIcon, tempEl, windEl, humidityEl);
 
-  col.setAttribute("class", "col-md");
+  
   col.classList.add("five-day-card");
   card.setAttribute("class", "card");
   cardBody.setAttribute("class", "card-body");
-  cardTitle.setAttribute("class", "card-title");
   tempEl.setAttribute("class", "card-text");
   windEl.setAttribute("class", "card-text");
   humidityEl.setAttribute("class", "card-text");
@@ -135,9 +130,9 @@ function renderForecastCard(forecast) {
   weatherContainer.append(col);
 }
 
-// Function to display 5 day forecast.
+// Display 5 day forecast.
 function renderForecast(dailyForecast) {
-  // Create unix timestamps for start and end of 5 day forecast
+  // Create timestamps for the start and end of the 5 day forecast
   var startDate = dayjs().add(1, "day").startOf("day").unix();
   var endDate = dayjs().add(6, "day").startOf("day").unix();
 
@@ -153,10 +148,9 @@ function renderForecast(dailyForecast) {
 
   for (var i = 0; i < dailyForecast.length; i++) {
 
-    // First filters through all of the data and returns only data that falls between one day after the current data and up to 5 days later.
     if (dailyForecast[i].dt >= startDate && dailyForecast[i].dt < endDate) {
 
-      // Then filters through the data and returns only data captured at noon for each day.
+     
       if (dailyForecast[i].dt_txt.slice(11, 13) == "12") {
         renderForecastCard(dailyForecast[i]);
       }
@@ -169,8 +163,6 @@ function renderItems(city, data) {
   renderForecast(data.list);
 }
 
-// Fetches weather data for given location from the Weather Geolocation
-// endpoint; then, calls functions to display current and forecast weather data.
 function fetchWeather(location) {
   var { lat } = location;
   var { lon } = location;
@@ -211,8 +203,7 @@ function fetchCoords(search) {
 }
 
 function handleSearchFormSubmit(e) {
-  // Don"t continue if there is nothing in the search form
-  if (!searchInput.value) {
+    if (!searchInput.value) {
     return;
   }
 
@@ -223,7 +214,7 @@ function handleSearchFormSubmit(e) {
 }
 
 function handleSearchHistoryClick(e) {
-  // Don"t do search if current elements is not a search history button
+  // Don't do search if current elements is not a search history button
   if (!e.target.matches(".button-history")) {
     return;
   }
