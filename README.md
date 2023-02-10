@@ -8,8 +8,7 @@ This weekly challenge was to creat a weather dashboard where you could type a ci
 
 ## Installation
 
-No source code was provided because this was made from scratch. I used the open weather map API to fetch the weather data to display on the website. 
-
+No source code was provided because this was made from scratch. I used the open weather map API to fetch the weather data to display on the website. I also used the Chrome Developer Colorpick Eyedropper to get the right colors for the the website as displayed in the mock-up for the challenge.
 [Deployed Link] (https://teniife.github.io/Weather-Dashboard/)
 
 ## Usage
